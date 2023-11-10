@@ -10,7 +10,27 @@ script = ExtResource("1_raea3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="StoredLabel" type="Label" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="HotkeyLabel" type="Label" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 10
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("2_mrthy")]
+visible = false
 
 [node name="Horizon" type="Node2D" parent="."]
 visible = false
@@ -33,16 +53,36 @@ centered = false
 [node name="Arrows" type="Node2D" parent="."]
 
 [node name="ToMouse" parent="Arrows" instance=ExtResource("4_bqt5q")]
-label_prefix = "Mouse"
+label_prefix = "local pos"
 
 [node name="Bounce" parent="Arrows" instance=ExtResource("4_bqt5q")]
 default_color = Color(1, 0.364706, 0.188235, 1)
-label_prefix = "Bounce"
+label_prefix = ".bounve(n)"
 
 [node name="Abs" parent="Arrows" instance=ExtResource("4_bqt5q")]
 default_color = Color(1, 0.239216, 1, 1)
-label_prefix = "Abs"
+label_prefix = "abs()"
 
-[node name="StoredLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Reference" parent="Arrows" instance=ExtResource("4_bqt5q")]
+default_color = Color(0.709804, 0.882353, 0.235294, 1)
+label_prefix = "REF"
+
+[node name="Project" parent="Arrows" instance=ExtResource("4_bqt5q")]
+default_color = Color(0.921569, 0.321569, 0.666667, 1)
+label_prefix = ".project(ref)"
+
+[node name="Orthogonal" parent="Arrows" instance=ExtResource("4_bqt5q")]
+default_color = Color(0.490196, 0.501961, 0.964706, 1)
+label_prefix = ".orthogonal()"
+
+[node name="Reflect" parent="Arrows" instance=ExtResource("4_bqt5q")]
+default_color = Color(0.627451, 0.721569, 0.878431, 1)
+label_prefix = ".reflect(n)"
+
+[node name="Slerp" parent="Arrows" instance=ExtResource("4_bqt5q")]
+default_color = Color(0.423529, 0.678431, 0.466667, 1)
+label_prefix = ".slide(n)"
+
+[node name="Slide" parent="Arrows" instance=ExtResource("4_bqt5q")]
+default_color = Color(0.188235, 0.666667, 0.827451, 1)
+label_prefix = ".slide(n)"

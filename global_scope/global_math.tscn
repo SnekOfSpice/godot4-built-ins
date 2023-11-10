@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://ifrtnlwiueid"]
+
+[ext_resource type="Script" path="res://global_scope/global_math.gd" id="1_1pse4"]
+
+[node name="GlobalMath" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1pse4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ValueEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(155.225, 55.76)
+layout_mode = 2
+placeholder_text = "insert value"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PiButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "PI"
+
+[node name="TauButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "TAU"
+
+[node name="ZeroButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="ThreeSixtyButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "360"
+
+[node name="InfButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "INF"
+
+[node name="NegInfButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "-INF"
+
+[node name="CalculateEverythingButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "DO MATH"
+
+[node name="ResultContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/PiButton" to="." method="_on_pi_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/TauButton" to="." method="_on_tau_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/ZeroButton" to="." method="_on_zero_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/ThreeSixtyButton" to="." method="_on_three_sixty_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/InfButton" to="." method="_on_inf_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/NegInfButton" to="." method="_on_neg_inf_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/CalculateEverythingButton" to="." method="_on_calculate_everything_button_pressed"]

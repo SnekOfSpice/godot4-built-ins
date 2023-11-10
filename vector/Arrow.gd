@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 	$Arrowhead.rotation = atan2(dir.y, dir.x) + PI * 0.5
 	$Arrowhead.position = target
 	
+	if not visible:
+		return
 	if target.distance_to(VectorLabels.mousePos) < 10:
 		$Label.visible = false
 		VectorLabels.store_string(str(label_prefix, ": ", target))
@@ -38,3 +40,8 @@ func _process(delta: float) -> void:
 
 func set_text(new_text: String):
 	$Label.text = new_text
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed and event.as_text_key_label() == str(get_index()):
+			visible = not visible
