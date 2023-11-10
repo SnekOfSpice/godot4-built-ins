@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://b022fs4vksps"]
+
+[ext_resource type="Texture2D" uid="uid://tordr7unvpjw" path="res://icon.svg" id="1_4cjwt"]
+[ext_resource type="Script" path="res://astar/graph_point.gd" id="1_bs8p0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6a5i"]
+radius = 20.0998
+
+[node name="GraphPoint" type="Node2D"]
+script = ExtResource("1_bs8p0")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 1
+z_as_relative = false
+collision_priority = 1.175
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_e6a5i")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.299254, 0.299254)
+texture = ExtResource("1_4cjwt")
+
+[node name="WeightLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="IdLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -29.0
+offset_top = -31.0
+offset_right = 11.0
+offset_bottom = -8.0
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

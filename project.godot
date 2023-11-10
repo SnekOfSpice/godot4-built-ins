@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Godot 4 Built-ins"
+run/main_scene="res://astar/graph_map.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Data="*res://autoload/data.tscn"
 
 [rendering]
 

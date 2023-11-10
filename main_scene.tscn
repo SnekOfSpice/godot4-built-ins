@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca4iwiwk81h76"]
+
+[ext_resource type="PackedScene" uid="uid://byxk3c476yqcv" path="res://astar/graph_map.tscn" id="1_13w4r"]
+[ext_resource type="Script" path="res://main_scene.gd" id="1_18ibv"]
+[ext_resource type="PackedScene" uid="uid://cy8ci4hr5yd7r" path="res://wrapper/hud.tscn" id="2_un0e6"]
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_18ibv")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="GraphMap" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_13w4r")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("2_un0e6")]

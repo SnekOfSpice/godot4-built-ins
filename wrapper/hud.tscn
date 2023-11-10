@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy8ci4hr5yd7r"]
+
+[ext_resource type="Script" path="res://wrapper/HUD.gd" id="1_5hsqq"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5hsqq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PointWeightSlider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(141.51, 0)
+layout_mode = 2
+max_value = 10.0
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="PointWeightLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BidirectionalCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "bidirectional"
+
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/PointWeightSlider" to="." method="_on_point_weight_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/BidirectionalCheckBox" to="." method="_on_bidirectional_check_box_pressed"]
