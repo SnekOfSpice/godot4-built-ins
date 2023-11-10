@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hesf6yx83ye5"]
+
+[ext_resource type="Script" path="res://autoload/VectorLabels.gd" id="1_5u54r"]
+
+[node name="VectorLabels" type="Node"]
+script = ExtResource("1_5u54r")

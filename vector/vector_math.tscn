@@ -33,9 +33,16 @@ centered = false
 [node name="Arrows" type="Node2D" parent="."]
 
 [node name="ToMouse" parent="Arrows" instance=ExtResource("4_bqt5q")]
+label_prefix = "Mouse"
 
 [node name="Bounce" parent="Arrows" instance=ExtResource("4_bqt5q")]
 default_color = Color(1, 0.364706, 0.188235, 1)
+label_prefix = "Bounce"
 
 [node name="Abs" parent="Arrows" instance=ExtResource("4_bqt5q")]
 default_color = Color(1, 0.239216, 1, 1)
+label_prefix = "Abs"
+
+[node name="StoredLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

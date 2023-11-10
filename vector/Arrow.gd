@@ -5,6 +5,7 @@ var origin := Vector2.ZERO
 var target:= Vector2.ZERO
 
 #@export_color_no_alpha var arrow_color := Color.WHITE
+@export var label_prefix := ""
 
 func _ready() -> void:
 	clear_points()
@@ -26,7 +27,14 @@ func _process(delta: float) -> void:
 	var dir = target-origin
 	$Arrowhead.rotation = atan2(dir.y, dir.x) + PI * 0.5
 	$Arrowhead.position = target
-	$Label.position = target
+	
+	if target.distance_to(VectorLabels.mousePos) < 10:
+		$Label.visible = false
+		VectorLabels.store_string(str(label_prefix, ": ", target))
+	else:
+		set_text(str(label_prefix, ": ", target))
+		$Label.position = target
+		$Label.visible = true
 
 func set_text(new_text: String):
 	$Label.text = new_text
