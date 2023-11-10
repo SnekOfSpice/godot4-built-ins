@@ -1,5 +1,7 @@
 extends Node
 
+var point_objects := []
+
 var properties := {}
 var listeners := {}
 
@@ -46,3 +48,16 @@ func unlisten(listener, key:String):
 	
 	current_listeners.erase(listener)
 	listeners[key] = current_listeners
+
+func collapse_point_objects():
+#	var i = 0
+#	var size = point_objects.size()
+#	while i < size:
+#		if not is_instance_valid(point_objects[i]):
+#			point_objects.remove_at(i)
+#			i -= 1
+#			size = point_objects.size()
+#		i += 1
+	
+	for l in get_tree().get_nodes_in_group("pointObjectListeners"):
+		l.on_point_objects_changed()

@@ -1,14 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://coeibmcg4a16r"]
+[gd_scene load_steps=3 format=3 uid="uid://coeibmcg4a16r"]
 
 [ext_resource type="Script" path="res://astar/edge.gd" id="1_riynl"]
 
+[sub_resource type="Gradient" id="Gradient_vcqet"]
+
 [node name="Edge" type="Line2D"]
+width = 3.105
+default_color = Color(1, 1, 1, 0.556863)
+gradient = SubResource("Gradient_vcqet")
 script = ExtResource("1_riynl")
 
 [node name="DeleteButton" type="Button" parent="."]
 unique_name_in_owner = true
 offset_right = 8.0
 offset_bottom = 8.0
-text = "delete"
+text = "x"
 
 [connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]

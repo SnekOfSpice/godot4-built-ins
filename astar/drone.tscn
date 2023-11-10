@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://djq3xxiicu4c1"]
+
+[ext_resource type="Texture2D" uid="uid://tordr7unvpjw" path="res://icon.svg" id="1_11r15"]
+[ext_resource type="Script" path="res://astar/drone.gd" id="1_lxdv8"]
+
+[node name="Drone" type="Node2D"]
+script = ExtResource("1_lxdv8")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.177983, 0.177983)
+texture = ExtResource("1_11r15")

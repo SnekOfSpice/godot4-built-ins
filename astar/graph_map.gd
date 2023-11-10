@@ -35,6 +35,7 @@ func _draw() -> void:
 func remove_point(id):
 	for edge in %"Edges".get_children():
 		if edge.from == id or edge.to == id:
+			astar.disconnect_points(edge.from, edge.to)
 			edge.delete()
 	astar.remove_point(id)
 
@@ -65,10 +66,18 @@ func add_connection(from:int, to:int):
 	
 	
 	
-#	for p in %"Points".get_children():
-#		p.is_connecting_from = false
+	for p in %"Points".get_children():
+		p.set_is_connecting_from(false, true)
 
 func remove_connection(from: int, to: int):
 	astar.disconnect_points(from, to)
 	for p in %"Points".get_children():
-		p.is_connecting_from = false
+		p.set_is_connecting_from(false)
+
+
+
+
+func _on_hud_find_path(from, to) -> void:
+	var drone = preload("res://astar/drone.tscn").instantiate()
+	add_child(drone)
+	drone.move_along_path(astar.get_point_path(from, to))

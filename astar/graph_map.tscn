@@ -15,3 +15,5 @@ unique_name_in_owner = true
 
 [node name="Edges" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[connection signal="find_path" from="UI/HUD" to="." method="_on_hud_find_path"]

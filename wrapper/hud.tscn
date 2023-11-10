@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://wrapper/HUD.gd" id="1_5hsqq"]
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="Control" groups=["pointObjectListeners"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,5 +42,22 @@ layout_mode = 2
 button_pressed = true
 text = "bidirectional"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="StartBox" type="SpinBox" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EndBox" type="SpinBox" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FindPathButton" type="Button" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Find Path"
+
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/PointWeightSlider" to="." method="_on_point_weight_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/BidirectionalCheckBox" to="." method="_on_bidirectional_check_box_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/FindPathButton" to="." method="_on_find_path_button_pressed"]
