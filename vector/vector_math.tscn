@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgef4f6f83dlb"]
+
+[ext_resource type="Script" path="res://vector/vector_math.gd" id="1_raea3"]
+[ext_resource type="PackedScene" uid="uid://cy8ci4hr5yd7r" path="res://wrapper/hud.tscn" id="2_mrthy"]
+[ext_resource type="Texture2D" uid="uid://tordr7unvpjw" path="res://icon.svg" id="3_d56xn"]
+[ext_resource type="PackedScene" uid="uid://bdyuvhmrsw0im" path="res://vector/arrow.tscn" id="4_bqt5q"]
+
+[node name="VectorMath" type="Node2D"]
+script = ExtResource("1_raea3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_mrthy")]
+
+[node name="Horizon" type="Node2D" parent="."]
+visible = false
+position = Vector2(547, 299)
+
+[node name="Icon2" type="Sprite2D" parent="Horizon"]
+modulate = Color(0.384314, 0.85098, 0.85098, 1)
+position = Vector2(-891, -321)
+scale = Vector2(15.4678, 2.81296)
+texture = ExtResource("3_d56xn")
+centered = false
+
+[node name="Icon" type="Sprite2D" parent="Horizon"]
+modulate = Color(0.458824, 0.129412, 0.0666667, 1)
+position = Vector2(-891, 0)
+scale = Vector2(15.4678, 2.81296)
+texture = ExtResource("3_d56xn")
+centered = false
+
+[node name="Arrows" type="Node2D" parent="."]
+
+[node name="ToMouse" parent="Arrows" instance=ExtResource("4_bqt5q")]
+
+[node name="Bounce" parent="Arrows" instance=ExtResource("4_bqt5q")]
+default_color = Color(1, 0.364706, 0.188235, 1)
+
+[node name="Abs" parent="Arrows" instance=ExtResource("4_bqt5q")]
+default_color = Color(1, 0.239216, 1, 1)
